@@ -6,7 +6,7 @@
    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -26,30 +26,30 @@
             
             
             
-            <%= link_to root_path, class: "navbar-brand" do %>
-              <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
-              INICIO
-            <% end %>
+           
             </div> 
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                
+                 <li><%= link_to root_path do %>
+                  <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+                  Inicio
+                <% end %></li>
                 <li><%= link_to about_path do %>
                   <i class="glyphicon glyphicon-road" aria-hidden="true"></i>
-                  UBICACION
+                  Ubicación
                 <% end %></li>
                 <li><%= link_to new_contact_path do %>
                   <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
-                  CONTACTO
+                  Contacto
                 <% end %></li>
                 
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://www.chileautos.cl/automotrizvillalobos">CHILEAUTOS</a></li>
+                <li><a href="https://www.chileautos.cl/automotrizvillalobos">ChileAutos</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">VEHICULOS <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehículos <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Autos", autos_path %></li>
                   <li><%= link_to "Camionetas", "/" %></li>
