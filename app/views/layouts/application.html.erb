@@ -23,14 +23,27 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand"<%= link_to "INICIO", root_path %></a>
-          </div>
+            
+            
+            
+            <%= link_to root_path, class: "navbar-brand" do %>
+              <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+              INICIO
+            <% end %>
+            </div> 
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><%= link_to " UBICACIÓN", about_path %></li>
-                <li><%= link_to "CONTACTO", new_contact_path %></li>
+                
+                <li><%= link_to about_path do %>
+                  <i class="glyphicon glyphicon-road" aria-hidden="true"></i>
+                  UBICACION
+                <% end %></li>
+                <li><%= link_to new_contact_path do %>
+                  <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                  CONTACTO
+                <% end %></li>
                 
               </ul>
               <ul class="nav navbar-nav navbar-right">
@@ -58,9 +71,11 @@
        <%= yield %>
     </div>
     
+        
+          
        
-      <nav class="navbar1 navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
+      <nav class="navbar1 navbar-fixed-bottom">
+        <div class="container-fluid" >
           <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
