@@ -5,17 +5,38 @@ class ContactsController < ApplicationController
   
   def create
     @contact = Contact.new(contact_params)
-  if @contact.save
-     name = params[:contact][:name]
-     email = params[:contact][:email]
-     body = params[:contact][:comments]
-     ContactMailer.contact_email(name, email, body).deliver
-     flash[:success] = "Message sent."
-     redirect_to new_contact_path
-  else
-     flash[:error] = @contact.errors.full_messages.join(", ")
-     redirect_to new_contact_path
-  end
+    if @contact.save
+       name = params[:contact][:name]
+       email = params[:contact][:email]
+       body = params[:contact][:comments]
+       ContactMailer.contact_email(name, email, body).deliver
+       flash[:success] = "Message sent."
+       redirect_to new_contact_path
+    else
+       flash[:error] =""
+       if params[:contact][:name] == ""
+         flash[:error] = flash[:error] + " Porfavor ingrese su nombre."
+         
+       end
+       if params[:contact][:email] == ""
+         flash[:error] =flash[:error] + " Porfavor ingrese su correo."
+        
+       end
+       if params[:contact][:email_confirmation] == ""
+       flash[:error] =flash[:error]+ " Porfavor ingrese su correo 2 veces."
+       
+       end
+       if params[:contact][:comments] == ""
+       flash[:error] = flash[:error]+" Porfavor ingrese su consulta."
+       
+       end
+       if params[:contact][:email_confirmation] != params[:contact][:email]
+       flash[:error] =flash[:error]+ " Porfavor confirme correctamente su correo."
+       
+       end
+       
+       redirect_to new_contact_path
+    end
   end
   
   private 
