@@ -59,14 +59,15 @@ background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, F
   color: lightblue;
 }
 
-
-
 .navbar-default .navbar-toggle {
   border: 2px solid white;
   &:hover, &:focus {
     background-color: #00c6ff;
   }
-  
+
+ .navbar1 .navbar-text{
+    color: white;
+  }
  
 }
 
